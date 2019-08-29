@@ -15,7 +15,6 @@ getDataHubCon <- function(dbname, schemaname) {
     username <- inifile$datahub$uid
     password <- inifile$datahub$pwd
   } else {
-    loadOrInstall("rstudioapi")
     username <- rstudioapi::askForSecret("DataHub Username:")
     password <- rstudioapi::askForSecret("DataHub Token (not your password!):")
   }
