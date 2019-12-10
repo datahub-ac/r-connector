@@ -1,4 +1,4 @@
-#' R connector for DataHub.ac
+#' R connector for Nuvolos.cloud
 #'
 #' Function getDataHubCon(dbname, schemaname)
 #' Creates a new connection to schema dbname.schemaname
@@ -12,11 +12,11 @@ getDataHubCon <- function(dbname, schemaname) {
   if (file.exists("~/.odbc.ini")) {
     inifile <- ini::read.ini('~/.odbc.ini')
 
-    username <- inifile$datahub$uid
-    password <- inifile$datahub$pwd
+    username <- inifile$nuvolos$uid
+    password <- inifile$nuvolos$pwd
   } else {
-    username <- rstudioapi::askForSecret("DataHub Username:")
-    password <- rstudioapi::askForSecret("DataHub Token (not your password!):")
+    username <- rstudioapi::askForSecret("Nuvolos Username:")
+    password <- rstudioapi::askForSecret("Nuvolos Token (not your password!):")
   }
   sysname  <- Sys.info()["sysname"]
 
@@ -60,7 +60,7 @@ getDataHubCon <- function(dbname, schemaname) {
 }
 
 #' Function getDBPath()
-#' In AAP applications returns the database name and schema name
+#' In Nuvolos applications returns the database name and schema name
 #'
 #' @export
 getDBPath <- function() {
